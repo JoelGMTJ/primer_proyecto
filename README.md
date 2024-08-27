@@ -31,3 +31,30 @@ La idea de este proyecto surge de mi vida en las residencias del Tecnológico de
 sea un problema, es algo en lo que me quedo pensando mientras espero a que pase por mí, la parte de las rutas de los camiones 
 está completamente inspirado en los camiones eléctricos que pasan por todo el campus, considero que esta idea tiene varias 
 ramas para poder implementar el mayor código posible, el cual también será variado.
+
+
+
+### Ya implementado en el proyecto
+
+**Votación de la temperatura para el edificio**
+La forma que está implementado es que el programa te va a pedir a que temperatura tú quieres el cuarto, y tambien va a asumir 
+que tu pones la temperatura ese día. Las votaciones de los demás cuartos se deciden aleatoriamente. Idealmente cada persona 
+escribiría su temperatura ideal, pero en este momento hago que cada se decida aleatriamente en un rango de temperaturas reales.
+
+### Sin implementar en el programa
+
+**Inventario de bicicletas en diferentes estaciones**
+Sistema que tiene la idea de que el programa le pida al usuario en que parada de bicis quiera revisar, después le escriba a 
+donde quiere ir y cuantas personas van a ir. Esto con el objetivo de pre-planear las rutas para así ver si en x estación hay
+suficientes bicicletas para todas las personas que vienen juntos. También se idea para que cuando alguien "reserve" las bicis
+se actuaize la lista para que se descuenten las bicicletas que van a usar
+
+**Predicción de elevador**
+Sistema que toma en cuenta que hay 3 elevadores en un edificio, aquí, el usuario va a decir en que piso está y si desea subir
+o bajar. Lo que hace el programa es revisar los 3 elevadores, observar el estado de cada uno, y comparar cual de ellos es el 
+ideal para que sea ese el que se suba el usuario.
+
+**Precio de el estacionamiento tec**
+Función la cual sirve para darte un aproximado de cuanto te va a costar el estacionamiento del campus. Esto considerando cuantas
+semanas vas a venir con el auto, si en tu semana hay dias en los que no vienes y tomando en cuenta los días festivos y que 
+los fines de semana no vienes a la escuela. También te dice el precio total y si es recomendable que compres el pase semestral.
