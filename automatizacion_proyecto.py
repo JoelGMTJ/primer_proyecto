@@ -1,6 +1,4 @@
 
-#Hola profe :)
-
 """
 La situacion es un edificio con 10 cuartos, 1 area comun, y una cocina comun
 la idea es que para decidir a que temperatura se va a poner el edificio, cada
@@ -55,3 +53,54 @@ temp_del_edificio = v_f_comun + v_f_cocina + v_f_cuartos
 
 print ("La temperatura del edificio ahora es:","%.1f" % temp_del_edificio,"°C")
 #todos sufrimos temperaturas de 20 grados por culpa de los del team calor :(
+
+#----
+
+#sistema para ver que elevador es el más cercano
+
+"""
+situacion: en un edificio hay 3 elevadores y queremos saber cual elevador es el
+mas recomendable que pase al piso de alguien que lo esta pidiendo, esto se va a
+decidir depende de en que piso esten los elevadores, cual es el mas cercano, si
+esta subiendo o bajando, todo esto para hacer la ruta de elevadores mas eficient
+"""
+
+#definicion de variables:
+#hacer en un futuro
+
+"""
+programa el cual te diga cuanto dinero vas a pagar por el estacionamiento a
+partir de cierta fecha, esto debido a la gree fee del tec
+"""
+
+def costo_estacionamiento (d_por_semana):
+    dias_por_semestre = d_por_semana*18
+    costo_individual = dias_por_semestre*50
+    return costo_individual
+#aqui es la funcion la que nos dice cuanto diero va a costar el estacionamiento
+#si se paga individual
+
+print ("Aqui vas a descubrir cuanto dinero vas a pagar por el estacionamiento\
+en el tec, esto a causa de la green fee, primero unas preguntas, responde 'S' \
+si es verdadero y 'N' si no lo es")
+electrico = str(input("Tienes coche electrico o hibrido? "))
+carpool = str(input("Haces carpool (compartes carro con 3 o mas personas)? "))
+residencias = str(input("Vives en residencias tec? "))
+
+#esto es para dar el caso que algunas de estas situaciones sean verdad no cobrar
+#Pues si alguno de estos fuera el caso, el tec no te cobra la green fee
+
+if electrico == "s" or carpool == "s" or residencias == "s":
+    print ("Tu costo va a ser $0")
+else:
+    d_por_semana = int(input("Cuantos dias tienes clase por semana? "))
+    if d_por_semana > 7 or d_por_semana < 0:
+        print ("Imposible :O")
+    else:
+        costo_semestre = costo_estacionamiento (d_por_semana)
+        print ("Te va a costar",costo_semestre, "pesos por semestre")
+        print ("El costo de el semestre como pago completo es de $1900")
+        if costo_semestre > 1900:
+            print ("Es mas recomendable pagar el estacionamiento semestral")
+        else:
+            print ("Es mas recomendable pagar el estacionamiento dia con dia")
