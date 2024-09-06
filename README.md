@@ -36,10 +36,21 @@ ramas para poder implementar el mayor código posible, el cual también será va
 
 ### Ya implementado en el proyecto
 
+**Página de inicio**
+Un texto donde te dice que es el programa, que opciones hay, y como acceder a ellas
+
 **Votación de la temperatura para el edificio**
 La forma que está implementado es que el programa te va a pedir a que temperatura tú quieres el cuarto, y tambien va a asumir 
 que tu pones la temperatura ese día. Las votaciones de los demás cuartos se deciden aleatoriamente. Idealmente cada persona 
 escribiría su temperatura ideal, pero en este momento hago que cada se decida aleatriamente en un rango de temperaturas reales.
+
+**Precio de el estacionamiento tec**
+Función la cual sirve para darte un aproximado de cuanto te va a costar el estacionamiento del campus. Esto considerando cuantas
+semanas vas a venir con el auto, si en tu semana hay dias en los que no vienes y tomando en cuenta los días festivos y que 
+los fines de semana no vienes a la escuela. También te dice el precio total y si es recomendable que compres el pase semestral.
+
+**Pregunta matemática**
+Simple apartado el cual te pregunta la multiplicación de 2 números
 
 ### Sin implementar en el programa
 
@@ -53,8 +64,3 @@ se actuaize la lista para que se descuenten las bicicletas que van a usar
 Sistema que toma en cuenta que hay 3 elevadores en un edificio, aquí, el usuario va a decir en que piso está y si desea subir
 o bajar. Lo que hace el programa es revisar los 3 elevadores, observar el estado de cada uno, y comparar cual de ellos es el 
 ideal para que sea ese el que se suba el usuario.
-
-**Precio de el estacionamiento tec**
-Función la cual sirve para darte un aproximado de cuanto te va a costar el estacionamiento del campus. Esto considerando cuantas
-semanas vas a venir con el auto, si en tu semana hay dias en los que no vienes y tomando en cuenta los días festivos y que 
-los fines de semana no vienes a la escuela. También te dice el precio total y si es recomendable que compres el pase semestral.
