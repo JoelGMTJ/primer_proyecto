@@ -2,10 +2,64 @@
 import random
 
 """
+------Notas generales------
+cada print vacio y "presione enter para continuar" es para darle un poco de
+orden y mejor aspecto al programa
+"""
+
+"""
+Aqui definimos todas las funciones, arriba de cada funcion dice de que apartado
+es y la explica brevemente
+"""
+
+#----------Seccion 1, votacion de la temperatura----------
+
+#Crea una lista con 9 elementos aleatorios
+def temp_otros_cuartos ():
+    temp_vecinos = []
+    i=0
+    while i<9:
+        temp_vecinos.append(random.randint(14,34))
+        i = i+1
+    return temp_vecinos
+
+#Saca el promedio de la lista ya hecha y de la escrita por el usuario.
+#La multiplica por 0.7 pues quiero que el valor de los cuartos solamente valga
+#por el 70% y el otro 30% de las areas comunes
+def promedio_cuartos (lista,usr_temp):
+    avg=0
+    for i in lista:
+        avg=avg+i
+    avg=avg+usr_temp
+    avg=avg/(len(lista)+1)
+    avg=avg*0.7
+    return avg
+
+#Aqui se toma el valor escrito por el usuario y se crea la temperatura de la
+#cocina. Luego se multiplica por .3 para darnos el 30% faltante
+def promedio_comun(area_c):
+    cocina = random.randint(20,40)
+    sum=cocina+area_c
+    avg=sum/2
+    avg=avg*0.3
+    return avg
+
+
+#----------Seccion 2, costo del estacionamiento----------
+
+#aqui es la funcion la que nos dice cuanto diero va a costar el estacionamiento
+#si se paga dia por dia
+def costo_estacionamiento (d_por_semana):
+    dias_por_semestre = d_por_semana*18
+    costo_individual = dias_por_semestre*50
+    return costo_individual
+
+"""
 Aqui va la parte para decidir que parte de el programa vas a querer usar,
 voy a usar la estructura de ifs para esto. Tambien va a servir como una
 "pantalla de inicio"
 """
+
 print()
 print('Bienvenido a "AutomatizaTec", el programa que te ayudara a una variedad\
  de cosas de tu vida diaria en el campus, selecciona una opcion para continuar')
@@ -20,7 +74,6 @@ def seleccionador ():
     opcion_principal = int(input("Que opcion deseas usar? "))
     return opcion_principal
 
-
 """
 La situacion es un edificio con 10 cuartos, 1 area comun, y una cocina comun
 la idea es que para decidir a que temperatura se va a poner el edificio, cada
@@ -33,59 +86,26 @@ opcion_principal = seleccionador ()
 while opcion_principal !=4:
     if opcion_principal ==1:
 
-        #asumo que solamente hay 10 cuartos
-
-        def promedio_cuartos(a, b ,c , d, e, f,  g, h, i, j):
-            sum_cuartos_sin_dividir = a+b+c+d+e+f+g+h+i+j
-            sum_cuartos = sum_cuartos_sin_dividir/10
-            valor_cuartos = sum_cuartos*0.7
-            return valor_cuartos
-
-#aqui hago el promedio de los cuartos, pero multiplico el valor por 0.7, pues
-#quiero que las votaciones de los cuartos solo valgan por el 70% del resultado
-
-        def promedio_comun(temp_common):
-            valor_common = temp_common*0.15
-            return valor_common
-
-#estas temperaturas valen mas pues aqui hay muchas personas, por lo que vale
-#mas sus resultados, ejemplo, cocina de piso, area comun
-
-        vc0, vc1 = random.randint (14,34), random.randint (14,34)
-        vc2, vc3 = random.randint (14,34), random.randint (14,34)
-        vc4, vc5 = random.randint (14,34), random.randint (14,34)
-        vc6, vc7 = random.randint (14,34), random.randint (14,34)
-        vc8 = random.randint (14,34)
         print ()
-        print("Aqui vas a decidir la temperatura de tu cuarto y la de la cocina, sin\
- embargo, como las demas personas tambien votan por su temperatura es muy probab\
-le que la temperatura sea muy diferente")
+        print("Aqui vas a decidir la temperatura de tu cuarto y la de la cocina\
+ sin embargo, como las demas personas tambien votan por su temperatura \
+,es muy probable que la temperatura sea algo diferente")
         print()
-        vc9 = int(input("A que temperatura desearias que este tu cuarto? "))
 
-#aqui hay los valores que cada usuario vota, los creo con random para simular
-#los otros habitantes de los demas 9 cuartos
+        usr_temp = int(input("A que temperatura desearias que este tu cuarto? "))
 
-        v_f_cuartos = promedio_cuartos (vc0,vc1,vc2,vc3,vc4,vc5,vc6,vc7,vc8,vc9)
-
-
-        cocina = random.randint(20,40)
-        v_f_cocina = promedio_comun(cocina)
-
-        #las personas de la cocina prefieren la temperatura mas alta
-
+        cuartos_final = promedio_cuartos(temp_otros_cuartos(),usr_temp)
+#Aqui se manda a crear la lista de los otros 9 cuartos y se saca el promedio
+#ya considerando el escrito por el usuario
 
         area_comun = int(input("A que temperatura desearias que este el area comun? "))
-        v_f_comun = promedio_comun(area_comun)
+        areas_comun_final = promedio_comun (area_comun)
 
-        #v_f significa votacion final
-
-        temp_del_edificio = v_f_comun + v_f_cocina + v_f_cuartos
+        temp_del_edificio = areas_comun_final + cuartos_final
 
         print ("La temperatura del edificio ahora es:","%.1f" % temp_del_edificio,"°C")
-        #todos sufrimos temperaturas de 20 grados por culpa de los del team calor :(
-
-        opcion_principal = seleccionador ()
+        print()
+        continuar = input("Presione enter para continuar")
 
     if opcion_principal == 2:
 
@@ -94,17 +114,11 @@ le que la temperatura sea muy diferente")
         partir de cierta fecha, esto debido a la gree fee del tec
         """
 
-        def costo_estacionamiento (d_por_semana):
-            dias_por_semestre = d_por_semana*18
-            costo_individual = dias_por_semestre*50
-            return costo_individual
-        #aqui es la funcion la que nos dice cuanto diero va a costar el estacionamiento
-        #si se paga individual
-
         print ()
-        print ("Aqui vas a descubrir cuanto dinero vas a pagar por el estacionamiento\
-en el tec, esto a causa de la green fee, primero unas preguntas, responde 'S' \
-si es verdadero y 'N' si no lo es")
+        print ("Aqui vas a descubrir cuanto dinero vas a pagar por el estaciona\
+miento en el tec, esto a causa de la green fee, primero unas preguntas, respond\
+e 'S' si es verdadero y 'N' si no lo es")
+        print()
         electrico = str(input("Tienes coche electrico o hibrido? "))
         carpool = str(input("Haces carpool (compartes carro con 3 o mas personas)? "))
         residencias = str(input("Vives en residencias tec? "))
@@ -116,6 +130,7 @@ si es verdadero y 'N' si no lo es")
             print ("Tu costo va a ser $0")
         else:
             d_por_semana = int(input("Cuantos dias tienes clase por semana? "))
+            print ()
             if d_por_semana > 7 or d_por_semana < 0:
                 print ("Imposible :O")
             else:
@@ -126,13 +141,13 @@ si es verdadero y 'N' si no lo es")
                     print ("Es mas recomendable pagar el estacionamiento semestral")
                 else:
                     print ("Es mas recomendable pagar el estacionamiento dia con dia")
+        print()
+        continuar = input("Presione enter para continuar")
 
-        opcion_principal = seleccionador ()
-
-    #Pregunta rapida del dia de matematicas
 
     if opcion_principal==3:
-        num1, num2 = random.randint(-30,64), random.randint(-60,50)
+#Pregunta rapida del dia de matematicas
+        num1, num2 = random.randint(-10,10), random.randint(-50,50)
         print ("Cuanto es", num1, "por", num2, "? ")
         user_ans = int(input())
         real_ans = num1*num2
@@ -144,20 +159,15 @@ si es verdadero y 'N' si no lo es")
             print ("WRONG!!! :(")
             print ("Pista: el numero que estas buscando es un poco mas", hint)
             user_ans=int(input("Try again "))
-            
+
         else:
             print("Correct :)")
 
+        print()
+        continuar = input("Presione enter para continuar")
+
     opcion_principal = seleccionador ()
 
-    #sistema para ver que elevador es el más cercano
-
-    """
-    situacion: en un edificio hay 3 elevadores y queremos saber cual elevador es el
-    mas recomendable que pase al piso de alguien que lo esta pidiendo, esto se va a
-    decidir depende de en que piso esten los elevadores, cual es el mas cercano, si
-    esta subiendo o bajando, todo esto para hacer la ruta de elevadores mas eficient
-    """
-
-    #definicion de variables:
-    #hacer en un futuro
+print()
+print("Gracias por usar AutomatizaTec, hasta pronto")
+print()
