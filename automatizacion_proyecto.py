@@ -24,23 +24,24 @@ def temp_otros_cuartos ():
     return temp_vecinos
 
 #Saca el promedio de la lista ya hecha y de la escrita por el usuario.
-#La multiplica por 0.7 pues quiero que el valor de los cuartos solamente valga
-#por el 70% y el otro 30% de las areas comunes
 def promedio_cuartos (lista,usr_temp):
-    avg=0
+    sum=0
     for i in lista:
-        avg=avg+i
-    avg=avg+usr_temp
-    avg=avg/(len(lista)+1)
+        sum=sum+i
+#suma de todos los valores de cada cuarto junto con el del usuario
+    sum=sum+usr_temp
+    avg=sum/(len(lista)+1)
+#lo multiplico por 0.7 pues el total de las temp de los usuarios vale 70%
     avg=avg*0.7
     return avg
 
-#Aqui se toma el valor escrito por el usuario y se crea la temperatura de la
-#cocina. Luego se multiplica por .3 para darnos el 30% faltante
+#promedio de las areas comunes
 def promedio_comun(area_c):
+#genera los 2 valores de las areas comunes
     cocina = random.randint(20,40)
     sum=cocina+area_c
     avg=sum/2
+#lo multiplica por 0.3 pues las areas comunes valen el 30% del valor total
     avg=avg*0.3
     return avg
 
@@ -50,7 +51,9 @@ def promedio_comun(area_c):
 #aqui es la funcion la que nos dice cuanto diero va a costar el estacionamiento
 #si se paga dia por dia
 def costo_estacionamiento (d_por_semana):
+#se multiplica por 18 por que hay 18 semanas por semestre
     dias_por_semestre = d_por_semana*18
+# se multiplica por 50 pues ese es el costo de un dia
     costo_individual = dias_por_semestre*50
     return costo_individual
 
@@ -190,10 +193,12 @@ voy a usar la estructura de ifs para esto. Tambien va a servir como una
 "pantalla de inicio"
 """
 
-print()
-print('Bienvenido a "AutomatizaTec", el programa que te ayudara a una variedad\
- de cosas de tu vida diaria en el campus, selecciona una opcion para continuar')
+print('''
+Bienvenido a "AutomatizaTec", el programa que te ayudara a una variedad de cosas
+de tu vida diaria en el campus, selecciona una opcion para continuar''')
 
+
+#Funcion para que sepan como acceder a cada fucion del programa
 def seleccionador ():
     print("")
     print("Para ver la temperatura de tu edificio, 1")
@@ -214,14 +219,14 @@ y en el area comun hay mas personas, esos votos van a tener mayor importancia
 
 opcion_principal = seleccionador ()
 
+#ciclo while para que puedan ejecutar las funciones cuantas veces quieran
 while opcion_principal !=5:
     if opcion_principal ==1:
-
-        print ()
-        print("Aqui vas a decidir la temperatura de tu cuarto y la de la cocina\
- sin embargo, como las demas personas tambien votan por su temperatura \
-,es muy probable que la temperatura sea algo diferente")
-        print()
+        print("""
+Aqui vas a decidir la temperatura de tu cuarto y la de la cocina sin embargo,
+como las demas personas tambien votan por su temperatura, es muy probable que
+la temperatura sea algo diferente
+""")
 
         usr_temp = int(input(
 "A que temperatura desearias que este tu cuarto? "))
@@ -244,16 +249,15 @@ while opcion_principal !=5:
     if opcion_principal == 2:
 
         """
-        programa el cual te diga cuanto dinero vas a pagar por el estacionamiento a
+        programa que te dice cuanto dinero vas a pagar por el estacionamiento a
         partir de cierta fecha, esto debido a la gree fee del tec
         """
 
-        print ()
-        print (
-"Aqui vas a descubrir cuanto dinero vas a pagar por el estacionamiento \
+        print ("""
+Aqui vas a descubrir cuanto dinero vas a pagar por el estacionamiento \
 en el tec, esto a causa de la green fee, primero unas preguntas, \
-responde 'S' si es verdadero y 'N' si no lo es")
-        print()
+responde 'S' si es verdadero y 'N' si no lo es
+""")
         electrico = str(input("Tienes coche electrico o hibrido? "))
         carpool = str(input(
 "Haces carpool (compartes carro con 3 o mas personas)? "))
@@ -334,7 +338,8 @@ responde 'S' si es verdadero y 'N' si no lo es")
                 # la 1pm como 1 envez de 13)
                 if hora_fin<hora_inicio:
                     print()
-                    print("La clase termina antes de que comience, favor de corregir ")
+                    print(
+"La clase termina antes de que comience, favor de corregir ")
                     continue
                 #corre la funcion principal
                 agenda = calendario(num_d_dia,materia,hora_inicio,hora_fin)
@@ -347,9 +352,20 @@ responde 'S' si es verdadero y 'N' si no lo es")
             #regresa el calendario a su estado original con una confirmacion
             #extra pues es un borrado definitivo
             elif cal_opcion == 3:
-                agenda = [["lunes"],["martes"],["miercoles"],["jueves"],["viernes"],["sabado"],["domingo"]]
-                horas_ocupadas = [[],[],[],[],[],[],[]]
-                print ("Agenda borrada con exito")
+                confirmacion = input('Escribe "BORRAR" para confirmar ')
+#confirmacion extra para asegurarse que si lo va a borrar definitivamente
+                if confirmacion == "BORRAR":
+                    agenda = [["lunes"],
+                    ["martes"],
+                    ["miercoles"],
+                    ["jueves"],
+                    ["viernes"],
+                    ["sabado"],
+                    ["domingo"]]
+                    horas_ocupadas = [[],[],[],[],[],[],[]]
+                    print ("Agenda borrada con exito")
+                else:
+                    print("La agenda no ha sido borrada")
             #imprime las instrucciones
             elif cal_opcion == 4:
                 instrucciones()
@@ -368,6 +384,6 @@ para salir del calendario, 5""")
 
     opcion_principal = seleccionador ()
 
-print()
-print("Gracias por usar AutomatizaTec, hasta pronto")
-print()
+print("""
+Gracias por usar AutomatizaTec, hasta pronto
+""")
