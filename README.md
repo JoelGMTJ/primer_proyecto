@@ -1,19 +1,19 @@
 # Primer proyecto de la materia Pensamiento computacional para ingeniería TC1028
 
-Mi proyecto para este primer semestre va a ser un sistema para calcular varias cosas dentro de un recinto con departamentos.
-Un ejemplo que quiero implementar es el de como manejar de manera eficientes los elevadores. Programar un sistema el cual
-nos ayude a transportar a el mayor número de personas posibles; por ejemplo, si un elevador está subiendo para el piso 6, 
-y alguien del piso 5 lo pidió, ¿qué es más rápido? que el elevador del psio uno suba a recoger al del 6, o esperar a que el 
-del 7 haga su recorrido y pase por l persona hasta la bajada. Ese tipo de preguntas se podrían solucionar de alguna forma más
-eficiente y complicada la cual maximise las personas y trate de reducir el tiempo que les toque esperar a cad pasajero.
+Mi proyecto para la materia es el de varias opciones las cuales están orientadas para estudiantes que visitan frecuentemente el 
+campus de la universidad. Aquí incluyo varias funciones que ayudan a un gran grupo de personas. Primero esta la opción de establecer
+la temperatura de un edificio. Esta función la integré pues dentro de residencias tec considero que puede ser una opción para 
+implementar. La situación es que todo el edificio solamente puede estar a una misma temperatura, por lo que va a realizar
+una votación de cada habitante en donde cada persona vote por la temperatura deseada (en el programa simule a el resto de 
+residentes como números random) y después tu vas a votar a que temperatura quieres que esté tu cuarto y un área común.
 
-Otro problema el cual se resolvería en mi idea de un sistema para manejar todo el recinto, es el manejo de las rutas de los 
-transportes, sobre como implementar un sistema basado en lecturas de cuantas personas hay esperando en cada parada para así
-redirigir el camión para que, en conjunto, reducir el mayor tiempoo posible de espera.
+Otra función que implementé es la de conocer cuanto te va costar el estacionamiento en el tec debido a la green fee, y si
+es más recomendable que lo pages todo de un solo pago. Otra función es la de que contestes una pregunta de matemáticas aleatoria.
+Función que es algo para divertirte y mantenerte ocupado un momennto.
 
-Otra idea que podría implementar sería el sistema para controlar la temperatura del aire acondicionado en todo un edificio con
-varias personas, siendo que solo pueda haber una temperatura para todo el edificio, buscando el promedio de temperatura deseada, 
-considerando algunos votos con más peso como el de la cocina en general, etc.
+La última función que implemente es la de un calendario. Aquí vas a poder crear tu agenda de tus clases que tienes durante una semana.
+
+
 
 ## Beneficios de este proyecto
 
@@ -34,7 +34,7 @@ ramas para poder implementar el mayor código posible, el cual también será va
 
 
 
-### Ya implementado en el proyecto
+### Funciones implementadas en el proyecto
 
 **Página de inicio**
 Un texto donde te dice que es el programa, que opciones hay, y como acceder a ellas
@@ -52,15 +52,7 @@ los fines de semana no vienes a la escuela. También te dice el precio total y s
 **Pregunta matemática**
 Simple apartado el cual te pregunta la multiplicación de 2 números
 
-### Sin implementar en el programa
-
-**Inventario de bicicletas en diferentes estaciones**
-Sistema que tiene la idea de que el programa le pida al usuario en que parada de bicis quiera revisar, después le escriba a 
-donde quiere ir y cuantas personas van a ir. Esto con el objetivo de pre-planear las rutas para así ver si en x estación hay
-suficientes bicicletas para todas las personas que vienen juntos. También se idea para que cuando alguien "reserve" las bicis
-se actuaize la lista para que se descuenten las bicicletas que van a usar
-
-**Predicción de elevador**
-Sistema que toma en cuenta que hay 3 elevadores en un edificio, aquí, el usuario va a decir en que piso está y si desea subir
-o bajar. Lo que hace el programa es revisar los 3 elevadores, observar el estado de cada uno, y comparar cual de ellos es el 
-ideal para que sea ese el que se suba el usuario.
+**Creación de agenda**
+Aquí vas a crear tu agenda de clases de una semana. Esta función de basa mucho en listas anidadas y en comparación de nnúmeros
+y edición de strings. Esta función va a crear una agenda y revisa que ninguna de tus actividades se empalmen con otras ya 
+establecidas previamente.
