@@ -1,3 +1,4 @@
+
 """
 AutomatizaTec
 Proyecto hecho por Joel Guadalupe Garcia Guzman
@@ -5,7 +6,6 @@ Programa que tiene varias funciones diseñadas
 para estudiantes de universidad
 """
 
-#bug revisar todo una ultima vez
 
 #Importamos las librerías
 import random
